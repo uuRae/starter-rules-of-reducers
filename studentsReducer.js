@@ -18,4 +18,43 @@ const studentsReducer = (state = initialState, action) => {
   }
 };
 
-/** Add your code below */
+console.log(
+  studentsReducer(initialState, {
+    type: 'students/addStudent',
+    payload: {
+      id: 4,
+      firstName: 'Ming',
+      lastName: 'Chan',
+      enrolled: true,
+    },
+  })
+);
+
+// Prints [
+//   { id: 1, firstName: 'Ahmad', lastName: 'Salim', enrolled: false },
+//   { id: 2, firstName: 'Gabriel', lastName: 'Carlos', enrolled: true },
+//   {
+//     id: 3,
+//     firstName: 'Cassandra',
+//     lastName: 'Williams',
+//     enrolled: false
+//   },
+//   { id: 4, firstName: 'Ming', lastName: 'Chan', enrolled: true }
+// ]
+
+console.log(
+  studentsReducer(initialState, {
+    type: 'students/removeStudent',
+    payload: { id: 2 },
+  })
+);
+
+// Prints [
+//   { id: 1, firstName: 'Ahmad', lastName: 'Salim', enrolled: false },
+//   {
+//     id: 3,
+//     firstName: 'Cassandra',
+//     lastName: 'Williams',
+//     enrolled: false,
+//   },
+// ];
